@@ -90,7 +90,7 @@ Start-Sleep -Milliseconds 200
 [System.Windows.Forms.SendKeys]::SendWait("pass $LANPassword{ENTER}")
 Start-Sleep -Milliseconds 200
 [System.Windows.Forms.SendKeys]::SendWait("start{ENTER}")
-while (-not (Get-NetAdapter -InterfaceDescription "Microsoft Wi-Fi Direct Virtual*" | Where-Object { $_.Status -eq 'Up' } | Select-Object -First 1 | Where-Object Status -eq 'Up')) {
+while (-not (Get-NetAdapter -InterfaceDescription "Microsoft Wi-Fi Direct Virtual*" | Where-Object Status -eq 'Up')) {
     Start-Sleep -Milliseconds 200
 }
 
